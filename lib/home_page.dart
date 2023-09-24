@@ -77,20 +77,15 @@ class _HomePageState extends State<HomePage> {
                         borderRadius: BorderRadius.circular(13),
                         color: Colors.blue,
                       ),
-                      child: Transform.rotate(
-                        angle: 44 *
-                            3.14159265359 /
-                            180, // Rotate 30 degrees to the left
-                        child: IconButton(
-                          icon: Icon(
-                            Ionicons.ticket_sharp,
-                            color: Colors.white,
-                          ),
-                          onPressed: () {},
+                      child: IconButton(
+                        icon: Icon(
+                          Icons.confirmation_num_outlined,
+                          color: Colors.white,
                         ),
+                        onPressed: () {},
                       ),
                     ),
-                    SizedBox(width: 10),
+                    SizedBox(width: 03),
                     Container(
                       width: 50,
                       height: 40,
@@ -124,7 +119,7 @@ class _HomePageState extends State<HomePage> {
               width: 356,
               padding: EdgeInsets.symmetric(horizontal: 40, vertical: 0),
               child: Column(
-                // Use a Column to stack the text widgets vertically
+             
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: [
@@ -147,7 +142,7 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.black,
                       letterSpacing: 0.1,
                     ),
-                    textAlign: TextAlign.center, // Center align the text
+                    textAlign: TextAlign.center, 
                   ),
                   SizedBox(height: 10),
                   Text(
@@ -159,7 +154,7 @@ class _HomePageState extends State<HomePage> {
                       color: Colors.black,
                       letterSpacing: 0.1,
                     ),
-                    textAlign: TextAlign.center, // Center align the text
+                    textAlign: TextAlign.center, 
                   ),
                   SizedBox(height: 30,),
                 Stack(
@@ -172,7 +167,7 @@ class _HomePageState extends State<HomePage> {
     ),
     Positioned(
       right: 42,
-      top: -10, // Giữ nguyên vị trí của nút đăng nhập
+      top: -10, 
 
       child: Container(
         width: 190,
@@ -188,8 +183,6 @@ class _HomePageState extends State<HomePage> {
         ),
         child: TextButton(
         onPressed: () {
-          // Xử lý sự kiện khi nút được nhấn
-          // Thêm mã xử lý đăng nhập ở đây
         },
         child: Text(
           'Đăng nhập',
@@ -222,8 +215,7 @@ class _HomePageState extends State<HomePage> {
         ),
         child: TextButton(
   onPressed: () {
-    // Xử lý sự kiện khi nút được nhấn
-    // Thêm mã xử lý đăng nhập ở đây
+    
   },
   child: Row(
     children: [
@@ -241,9 +233,9 @@ class _HomePageState extends State<HomePage> {
       ),
       SizedBox(width: 35,),
       Icon(
-        Icons.chevron_right, // Thay đổi biểu tượng "back" thành biểu tượng bạn muốn
-        color: Colors.black, // Màu sắc của biểu tượng
-        size: 25, // Kích thước của biểu tượng
+        Icons.chevron_right, 
+        color: Colors.black, 
+        size: 25, 
       ),
     ],
   ),
@@ -271,31 +263,60 @@ class _HomePageState extends State<HomePage> {
     padding: EdgeInsets.only(bottom: 120),
     child: Center(
       child: Container(
-        width: 330, // Đặt chiều rộng của hộp con
-        height: 100, // Đặt chiều cao của hộp con
+        width: 330, 
+        height: 100, 
         decoration: BoxDecoration(
-          color: Colors.white, // Màu nền của hộp con
+          color: Colors.white, 
           borderRadius: BorderRadius.circular(30),
           border: Border.all(
-            color: Colors.black, // Màu của đường viền
-            width: 0.5, // Độ dày của đường viền
+            color: Colors.black, 
+            width: 0.5, 
           ),
         ),
 
         child: Column(
-  mainAxisAlignment: MainAxisAlignment.end, // Đẩy cả hai nút lên phía dưới cùng
+  mainAxisAlignment: MainAxisAlignment.end, 
   children: [
     Row(
-      mainAxisAlignment: MainAxisAlignment.center, // Căn chỉnh các phần tử vào giữa
+      mainAxisAlignment: MainAxisAlignment.center,
       crossAxisAlignment: CrossAxisAlignment.center,
       children: [
-        ElevatedButton(
-          onPressed: () {
-            // Xử lý khi nút "Giao hàng" được nhấn
-          },
-          child: Text("Giao hàng"),
+       InkWell(
+  onTap: () {
+    
+  },
+  child: Container(
+    width: 70, 
+    height: 70, 
+    decoration: BoxDecoration(
+      shape: BoxShape.circle, 
+      color: Colors.transparent, 
+      border: Border.all(color: Colors.transparent), 
+    ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          Icons.local_shipping_outlined, 
+          color: Colors.black,
+          size: 30, 
         ),
-        SizedBox(width: 10), // Tạo khoảng cách ngang giữa nút và đường thẳng
+        SizedBox(height: 5), 
+        Text(
+          "Giao hàng",
+          style: GoogleFonts.getFont(
+            'Inter',
+            color: Colors.black,
+            fontSize: 12,
+          ),
+        ),
+      ],
+    ),
+  ),
+),
+
+
+        SizedBox(width: 10), 
         Padding(
           padding: const EdgeInsets.only(bottom: 45),
           child: Transform.rotate(
@@ -303,17 +324,45 @@ class _HomePageState extends State<HomePage> {
             child: Container(
               height: 2,
               width: 49,
-              color: Colors.black,
+              color: Colors.grey,
             ),
           ),
         ),
-        SizedBox(width: 10), // Tạo khoảng cách ngang giữa đường thẳng và nút "Mang đi"
-        ElevatedButton(
-          onPressed: () {
-            // Xử lý khi nút "Mang đi" được nhấn
-          },
-          child: Text("Mang đi"),
+        SizedBox(width: 10),
+       InkWell(
+  onTap: () {
+   
+  },
+  child: Container(
+    width: 70, 
+    height: 70, 
+    decoration: BoxDecoration(
+      shape: BoxShape.circle, 
+      color: Colors.transparent, 
+      border: Border.all(color: Colors.transparent), 
+    ),
+    child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+      children: [
+        Icon(
+          Icons.delivery_dining_outlined, 
+          color: Colors.black,
+          size: 36, 
         ),
+        SizedBox(height: 5), 
+        Text(
+          "Mang đi",
+          style: GoogleFonts.getFont(
+            'Inter',
+            color: Colors.black,
+            fontSize: 12,
+          ),
+        ),
+      ],
+    ),
+  ),
+),
+
       ],
     ),
   ],
