@@ -1,4 +1,14 @@
+import 'package:demo_deer/pages/otp.dart';
 import 'package:flutter/material.dart';
+import 'package:pinput/pinput.dart';
+
+enum Language {
+  Vietnamese,
+  English,
+}
+
+Language currentLanguage =
+    Language.Vietnamese; // Ngôn ngữ mặc định là Tiếng Việt
 
 class HomePage extends StatefulWidget {
   const HomePage({Key? key}) : super(key: key);
@@ -11,21 +21,32 @@ class _HomePageState extends State<HomePage> {
   TextEditingController countrycode = TextEditingController();
   TextEditingController phoneNumber = TextEditingController();
 
-  
+  void toggleLanguage() {
+    if (currentLanguage == Language.Vietnamese) {
+      currentLanguage = Language.English;
+    } else {
+      currentLanguage = Language.Vietnamese;
+    }
+    setState(() {}); // Cập nhật giao diện
+  }
+
   @override
   void initState() {
     // TODO: implement initState
     countrycode.text = "+84";
     super.initState();
   }
+
   bool isPhoneNumberValid() {
     // Biểu thức chính quy để kiểm tra số điện thoại
     // Kiểm tra số điện thoại có ít nhất 10 chữ số và chỉ chứa số không chữ
     RegExp regex = RegExp(r'^\d{10}$');
     return regex.hasMatch(phoneNumber.text);
   }
+
   @override
-   Widget build(BuildContext context) {
+  Widget build(BuildContext context) {
+
     return Scaffold(
       body: Stack(
         children: [
@@ -80,8 +101,7 @@ class _HomePageState extends State<HomePage> {
                       ),
                       color: Colors.white,
                     ),
-                    padding:
-                        EdgeInsets.symmetric(horizontal: 10, vertical: 20),
+                    padding: EdgeInsets.symmetric(horizontal: 10, vertical: 20),
                     child: Column(
                       mainAxisAlignment: MainAxisAlignment.start,
                       children: [
@@ -133,8 +153,8 @@ class _HomePageState extends State<HomePage> {
                                   width: 40,
                                   child: TextField(
                                     controller: countrycode,
-                                    decoration:
-                                        InputDecoration(border: InputBorder.none),
+                                    decoration: InputDecoration(
+                                        border: InputBorder.none),
                                   ),
                                 ),
                                 Text(
@@ -152,46 +172,55 @@ class _HomePageState extends State<HomePage> {
                                     ),
                                   ),
                                 ),
-                               
                               ],
-                              
                             ),
-                          
                           ),
-                          
                         ),
                         SizedBox(
                           width: 385,
                           height: 50,
-                          child:  ElevatedButton(
-                          onPressed: () {
-                            // Xử lý sự kiện khi nút được bấm
-                            // Ví dụ: Gửi mã xác thực
-                          },
-                          child: Text("Đăng nhập"),
-                          style: ElevatedButton.styleFrom(
-                            primary: Colors.grey[300],
-                            shape: RoundedRectangleBorder(
+                          child: ElevatedButton(
+                            onPressed: () {
+                              Navigator.push(
+                                context,
+                                MaterialPageRoute(
+                                  builder: (context) => MyOtp(), // Thay thế "SecondPage" bằng tên trang mới của bạn
+                                ),
+                              );
+                            },
+                            child: Text("Đăng nhập"),
+                            style: ElevatedButton.styleFrom(
+                              primary: Colors.grey[300],
+                              shape: RoundedRectangleBorder(
                                 borderRadius: BorderRadius.circular(10),
+                              ),
                             ),
                           ),
-                        ),
                         ),
                         SizedBox(
                           height: 145,
                         ),
-                         SizedBox(
-                          
-                          child: Text("Tiếng Việt"),
+                        SizedBox(
+                          child: InkWell(
+                            onTap: () {
+                              toggleLanguage();
+                            },
+                            child: Text(
+                              currentLanguage == Language.Vietnamese
+                                  ? "Tiếng Việt"
+                                  : "English",
+                              style: TextStyle(
+                                fontSize: 16.0,
+                                color: Colors.black,
+                                decoration: TextDecoration.underline,
+                              ),
+                            ),
                           ),
-                          
+                        ),
                       ],
                     ),
-                  
                   ),
-                  
                 ),
-               
               ],
             ),
           ),
