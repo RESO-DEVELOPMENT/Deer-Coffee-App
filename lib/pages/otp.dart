@@ -65,7 +65,7 @@ class _MyOtpState extends State<MyOtp> {
           Container(
             decoration: BoxDecoration(
               image: DecorationImage(
-                image: AssetImage('assets/images/image.png'),
+                image: AssetImage('assets/images/image.png'), ////////fffffff/ffff
                 fit: BoxFit.cover,
               ),
             ),
