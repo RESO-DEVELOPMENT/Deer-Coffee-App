@@ -1,3 +1,4 @@
+import 'package:deercoffee/carousel_slider.dart';
 import 'package:deercoffee/home_page.dart';
 import 'package:deercoffee/splash_screen.dart';
 import 'package:flutter/material.dart';
@@ -19,6 +20,7 @@ class MyApp extends StatelessWidget {
       ),
       home: SplashScreen(),
       // home: HomePage(),
+      // home : CarouselSliderWidget(),
     );
   }
 }
