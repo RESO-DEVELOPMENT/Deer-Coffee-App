@@ -26,11 +26,11 @@ class _HomePageState extends State<HomePage> {
       backgroundColor: Color(0xFFE5EDFF),
       bottomNavigationBar: BottomNavigationBar(
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.coffee_outlined), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.store_outlined), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.assignment), label: ''),
-          BottomNavigationBarItem(icon: Icon(Icons.segment_sharp), label: ''),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Trang chủ'),
+          BottomNavigationBarItem(icon: Icon(Icons.coffee_outlined), label: 'Đặt hàng'),
+          BottomNavigationBarItem(icon: Icon(Icons.store_outlined), label: 'Cửa hàng'),
+          BottomNavigationBarItem(icon: Icon(Icons.assignment), label: 'Ưu đãi'),
+          BottomNavigationBarItem(icon: Icon(Icons.segment_sharp), label: 'Khác'),
         ],
         currentIndex: _currentIndex,
         selectedItemColor: Colors.blue,
