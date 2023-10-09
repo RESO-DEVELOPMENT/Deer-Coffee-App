@@ -24,19 +24,6 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     return Scaffold(
       backgroundColor: Color(0xFFE5EDFF),
-      bottomNavigationBar: BottomNavigationBar(
-        items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: 'Trang chủ'),
-          BottomNavigationBarItem(icon: Icon(Icons.coffee_outlined), label: 'Đặt hàng'),
-          BottomNavigationBarItem(icon: Icon(Icons.store_outlined), label: 'Cửa hàng'),
-          BottomNavigationBarItem(icon: Icon(Icons.assignment), label: 'Ưu đãi'),
-          BottomNavigationBarItem(icon: Icon(Icons.segment_sharp), label: 'Khác'),
-        ],
-        currentIndex: _currentIndex,
-        selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
-        onTap: _changeItem, // Đổi màu khi nổi lên (chọn)
-      ),
       body: SafeArea(
         child: ListView(
           children: [
@@ -259,7 +246,8 @@ class _HomePageState extends State<HomePage> {
                         ),
                       ),
                     ],
-                    clipBehavior: Clip.none, // Đảm bảo không cắt bớt phần nào của các phần tử
+                    clipBehavior: Clip
+                        .none, // Đảm bảo không cắt bớt phần nào của các phần tử
                   ),
                 ],
               ),
@@ -308,12 +296,10 @@ class _HomePageState extends State<HomePage> {
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   color: Colors.transparent,
-                                  border: Border.all(
-                                      color: Colors.transparent),
+                                  border: Border.all(color: Colors.transparent),
                                 ),
                                 child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Icon(
                                       Icons.local_shipping_outlined,
@@ -356,12 +342,10 @@ class _HomePageState extends State<HomePage> {
                                 decoration: BoxDecoration(
                                   shape: BoxShape.circle,
                                   color: Colors.transparent,
-                                  border: Border.all(
-                                      color: Colors.transparent),
+                                  border: Border.all(color: Colors.transparent),
                                 ),
                                 child: Column(
-                                  mainAxisAlignment:
-                                      MainAxisAlignment.center,
+                                  mainAxisAlignment: MainAxisAlignment.center,
                                   children: [
                                     Icon(
                                       Icons.delivery_dining_outlined,
@@ -391,8 +375,7 @@ class _HomePageState extends State<HomePage> {
                     padding: EdgeInsets.all(20),
                     child: CarouselSlider(
                       options: CarouselOptions(
-                        scrollPhysics:
-                            const BouncingScrollPhysics(),
+                        scrollPhysics: const BouncingScrollPhysics(),
                         height: 128.0, // Điều chỉnh chiều cao của slider
                         aspectRatio: 12,
                         autoPlay: true, // Tự động chuyển đổi ảnh
@@ -441,202 +424,229 @@ class _HomePageState extends State<HomePage> {
                     }).toList(),
                   ),
                   SizedBox(
-                    height: 32, // Điều này tạo một khoảng trống để cuộn nội dung
+                    height:
+                        32, // Điều này tạo một khoảng trống để cuộn nội dung
                   ),
-                  
-             Row(
-  mainAxisAlignment: MainAxisAlignment.start,
-  crossAxisAlignment: CrossAxisAlignment.start,
-  children: [
-    Padding(
-      padding: EdgeInsets.only(left: 64), // Thêm khoảng cách bên phải
-      child: Text(
-        'Khám phá thêm',
-        style: GoogleFonts.getFont(
-          'Inter',
-          fontSize: 16,
-          fontWeight: FontWeight.bold,
-          color: Colors.black,
-        ),
-      ),
-    ),SizedBox(height: 16,),
-    Image.asset('assets/images/star.png',
-    height: 32,width: 32,),
-    // Các phần tử khác ở dưới
-  ],
-),
-SizedBox(height: 10,),
-SingleChildScrollView(
-  scrollDirection: Axis.horizontal,
-  child: Row(
-    children: <Widget>[
-      Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30.0),
-          gradient: LinearGradient(
-            begin: Alignment(-1, -1.133),
-            end: Alignment(1, 1.367),
-            colors: <Color>[Color(0xff549ffd), Color(0xffc8ddff)],
-            stops: <double>[0.014, 1],
-          ),
-        ),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(30.0),
-          onTap: () {
-            // Xử lý khi nút được nhấn
-          },
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            child: Text(
-              'Ưu đãi đặc biệt',
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
-      ),
-      SizedBox(width: 8.0), // Khoảng cách giữa nút 1 và 2
-      Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30.0),
-          gradient: LinearGradient(
-            begin: Alignment(-1, -1.133),
-            end: Alignment(1, 1.367),
-            colors: <Color>[Color(0xff549ffd), Color(0xffc8ddff)],
-            stops: <double>[0.014, 1],
-          ),
-        ),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(30.0),
-          onTap: () {
-            // Xử lý khi nút được nhấn
-          },
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            child: Text(
-              'Cập nhập từ Nhà',
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
-      ),
-      SizedBox(width: 8.0), // Khoảng cách giữa nút 2 và 3
-      Container(
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(30.0),
-          gradient: LinearGradient(
-            begin: Alignment(-1, -1.133),
-            end: Alignment(1, 1.367),
-            colors: <Color>[Color(0xff549ffd), Color(0xffc8ddff)],
-            stops: <double>[0.014, 1],
-          ),
-        ),
-        child: InkWell(
-          borderRadius: BorderRadius.circular(30.0),
-          onTap: () {
-            // Xử lý khi nút được nhấn
-          },
-          child: Padding(
-            padding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 8.0),
-            child: Text(
-              '#Coffee',
-              style: TextStyle(
-                fontSize: 12,
-                fontWeight: FontWeight.bold,
-                color: Colors.white,
-              ),
-            ),
-          ),
-        ),
-      ),
-      // Thêm các phần tử khác ở đây
-    ],
-  ),
-),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.only(
+                            left: 64), // Thêm khoảng cách bên phải
+                        child: Text(
+                          'Khám phá thêm',
+                          style: GoogleFonts.getFont(
+                            'Inter',
+                            fontSize: 16,
+                            fontWeight: FontWeight.bold,
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
+                      SizedBox(
+                        height: 16,
+                      ),
+                      Image.asset(
+                        'assets/images/star.png',
+                        height: 32,
+                        width: 32,
+                      ),
+                      // Các phần tử khác ở dưới
+                    ],
+                  ),
+                  SizedBox(
+                    height: 10,
+                  ),
+                  SingleChildScrollView(
+                    scrollDirection: Axis.horizontal,
+                    child: Row(
+                      children: <Widget>[
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30.0),
+                            gradient: LinearGradient(
+                              begin: Alignment(-1, -1.133),
+                              end: Alignment(1, 1.367),
+                              colors: <Color>[
+                                Color(0xff549ffd),
+                                Color(0xffc8ddff)
+                              ],
+                              stops: <double>[0.014, 1],
+                            ),
+                          ),
+                          child: InkWell(
+                            borderRadius: BorderRadius.circular(30.0),
+                            onTap: () {
+                              // Xử lý khi nút được nhấn
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 16.0, vertical: 8.0),
+                              child: Text(
+                                'Ưu đãi đặc biệt',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 8.0), // Khoảng cách giữa nút 1 và 2
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30.0),
+                            gradient: LinearGradient(
+                              begin: Alignment(-1, -1.133),
+                              end: Alignment(1, 1.367),
+                              colors: <Color>[
+                                Color(0xff549ffd),
+                                Color(0xffc8ddff)
+                              ],
+                              stops: <double>[0.014, 1],
+                            ),
+                          ),
+                          child: InkWell(
+                            borderRadius: BorderRadius.circular(30.0),
+                            onTap: () {
+                              // Xử lý khi nút được nhấn
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 16.0, vertical: 8.0),
+                              child: Text(
+                                'Cập nhập từ Nhà',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        SizedBox(width: 8.0), // Khoảng cách giữa nút 2 và 3
+                        Container(
+                          decoration: BoxDecoration(
+                            borderRadius: BorderRadius.circular(30.0),
+                            gradient: LinearGradient(
+                              begin: Alignment(-1, -1.133),
+                              end: Alignment(1, 1.367),
+                              colors: <Color>[
+                                Color(0xff549ffd),
+                                Color(0xffc8ddff)
+                              ],
+                              stops: <double>[0.014, 1],
+                            ),
+                          ),
+                          child: InkWell(
+                            borderRadius: BorderRadius.circular(30.0),
+                            onTap: () {
+                              // Xử lý khi nút được nhấn
+                            },
+                            child: Padding(
+                              padding: EdgeInsets.symmetric(
+                                  horizontal: 16.0, vertical: 8.0),
+                              child: Text(
+                                '#Coffee',
+                                style: TextStyle(
+                                  fontSize: 12,
+                                  fontWeight: FontWeight.bold,
+                                  color: Colors.white,
+                                ),
+                              ),
+                            ),
+                          ),
+                        ),
+                        // Thêm các phần tử khác ở đây
+                      ],
+                    ),
+                  ),
+                  SizedBox(
+                    height: 32,
+                  ),
+                  GridView.builder(
+                    gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
+                      crossAxisCount: 2,
+                      crossAxisSpacing: 16.0,
+                      mainAxisSpacing: 32.0,
+                    ),
+                    itemCount: 6,
+                    shrinkWrap: true,
+                    physics: NeverScrollableScrollPhysics(),
+                    itemBuilder: (BuildContext context, int index) {
+                      // Danh sách văn bản dưới cùng
+                      List<String> bottomTexts = [
+                        'Text 1',
+                        'Text 2',
+                        'Text 3',
+                        'Text 4',
+                        'Text 5',
+                        'Text 6'
+                      ];
+                      List<String> dateTexts = [
+                        '01/08',
+                        '01/08',
+                        '01/08',
+                        '01/08',
+                        '01/08',
+                        '01/08'
+                      ];
 
-SizedBox(height: 32,),
-GridView.builder(
-  gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-    crossAxisCount: 2,
-    crossAxisSpacing: 16.0,
-    mainAxisSpacing: 32.0,
-  ),
-  itemCount: 6,
-  shrinkWrap: true,
-  physics: NeverScrollableScrollPhysics(),
-  itemBuilder: (BuildContext context, int index) {
-    // Danh sách văn bản dưới cùng
-    List<String> bottomTexts = ['Text 1', 'Text 2', 'Text 3', 'Text 4', 'Text 5', 'Text 6'];
-    List<String> dateTexts = ['01/08', '01/08', '01/08', '01/08', '01/08', '01/08'];
-    
-    return Container(
-      decoration: BoxDecoration(
-        color: Colors.grey,
-        borderRadius: BorderRadius.circular(12.0), // Đặt bán kính bo tròn
-      ),
-      
-      child: Stack(
-        children: [
-
-        Positioned(
-  left: 0,
-  right: 0,
-  bottom: 0,
-  child: Container(
-    color: Colors.white,
-    child: Column(
-      crossAxisAlignment: CrossAxisAlignment.start,
-      
-      children: [
-        Text(
-          bottomTexts[index].toUpperCase(),
-          style: GoogleFonts.getFont('Inter', fontSize: 19, fontWeight: FontWeight.bold),
-        ),
-        SizedBox(height: 8), 
-        Row(
-          mainAxisAlignment: MainAxisAlignment.start,
-          children: [
-            Icon(
-              Icons.calendar_month_outlined, 
-              color: Colors.black, 
-              size: 16, 
-            ),
-            SizedBox(width: 4), 
-            Text(
-              dateTexts[index], // Sử dụng giá trị từ danh sách dateTexts
-              style: GoogleFonts.getFont('Inter', fontSize: 16, fontWeight: FontWeight.normal),
-            ),
-          ],
-        ),
-      ],
-    ),
-  ),
-),
-
-         
-        ],
-      ),
-      
-    );
-  },
-)
-
-
-
-
-
-
-
-
-
-
+                      return Container(
+                        decoration: BoxDecoration(
+                          color: Colors.grey,
+                          borderRadius: BorderRadius.circular(
+                              12.0), // Đặt bán kính bo tròn
+                        ),
+                        child: Stack(
+                          children: [
+                            Positioned(
+                              left: 0,
+                              right: 0,
+                              bottom: 0,
+                              child: Container(
+                                color: Colors.white,
+                                child: Column(
+                                  crossAxisAlignment: CrossAxisAlignment.start,
+                                  children: [
+                                    Text(
+                                      bottomTexts[index].toUpperCase(),
+                                      style: GoogleFonts.getFont('Inter',
+                                          fontSize: 19,
+                                          fontWeight: FontWeight.bold),
+                                    ),
+                                    SizedBox(height: 8),
+                                    Row(
+                                      mainAxisAlignment:
+                                          MainAxisAlignment.start,
+                                      children: [
+                                        Icon(
+                                          Icons.calendar_month_outlined,
+                                          color: Colors.black,
+                                          size: 16,
+                                        ),
+                                        SizedBox(width: 4),
+                                        Text(
+                                          dateTexts[
+                                              index], // Sử dụng giá trị từ danh sách dateTexts
+                                          style: GoogleFonts.getFont('Inter',
+                                              fontSize: 16,
+                                              fontWeight: FontWeight.normal),
+                                        ),
+                                      ],
+                                    ),
+                                  ],
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                  )
                 ],
               ),
             ),

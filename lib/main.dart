@@ -1,12 +1,17 @@
-import 'package:deercoffee/carousel_slider.dart';
-import 'package:deercoffee/home_page.dart';
-import 'package:deercoffee/notification.dart';
-import 'package:deercoffee/other_page.dart';
-import 'package:deercoffee/update_profile.dart';
-import 'package:deercoffee/splash_screen.dart';
+import 'package:deercoffee/views/login/login.dart';
+import 'package:deercoffee/views/root_screen.dart';
+import 'package:deercoffee/views/splash_screen.dart';
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'firebase_options.dart';
+import 'utils/route_constrant.dart';
+import 'views/not_found_screen.dart';
 
-void main() {
+Future<void> main() async {
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -16,19 +21,32 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
+    return GetMaterialApp(
       title: 'Deer Coffee',
       theme: ThemeData(
-       primarySwatch: Colors.orange,
+        colorSchemeSeed: const Color(0xFF2182F2),
+        useMaterial3: true,
+        brightness: Brightness.light,
       ),
-      // home: SplashScreen(),
-      // home: HomePage(),
-      // home : CarouselSliderWidget(),
-      // home: UpdateProfilePage(),
-          // home: NotificationPage(),
-
-          home: OtherPage(),
+      themeMode: ThemeMode.light,
+      getPages: [
+        GetPage(
+            name: RouteHandler.WELCOME,
+            page: () => SplashScreen(),
+            transition: Transition.zoom),
+        GetPage(
+            name: RouteHandler.LOGIN,
+            page: () => LoginScreen(),
+            transition: Transition.zoom),
+        GetPage(
+            name: RouteHandler.HOME,
+            page: () => RootScreen(),
+            transition: Transition.cupertino),
+      ],
+      initialRoute: RouteHandler.WELCOME,
+      unknownRoute:
+          GetPage(name: RouteHandler.NOT_FOUND, page: () => NotFoundScreen()),
+      home: SplashScreen(),
     );
   }
 }
-

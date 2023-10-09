@@ -1,4 +1,5 @@
-import 'package:deercoffee/home_page.dart';
+import 'package:deercoffee/views/home_page.dart';
+import 'package:deercoffee/views/root_screen.dart';
 import 'package:flutter/material.dart';
 
 class SplashScreen extends StatefulWidget {
@@ -15,7 +16,7 @@ class _SplashScreenState extends State<SplashScreen> {
     Future.delayed(Duration(seconds: 3), () {
       Navigator.of(context).pushReplacement(
         MaterialPageRoute(
-          builder: (context) => HomePage(),
+          builder: (context) => RootScreen(),
         ),
       );
     });
